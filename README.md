@@ -53,7 +53,7 @@
 - Thunks bundle bits of code into packages to compute later
 ## Promise Lifecycle Actions
 - Good user experiences require advising the user of the state of async requests at any given moment.
-- The Lifecycle of a Promise: begins in a __*pending*__ state and becomes either __*fulfilled or rejected*__.
+- The Lifecycle of a Promise: begins as __*pending*__ state and moves to either __*fulfilled or rejected*__.
 
 
 
