@@ -17,9 +17,19 @@
 
       createAsychThunk() and its extraReducers property
 ## Write Your Own Middleware
-- To add middleware to a project use Redux's: `applyMiddleware`
-- Then within createStore( ) add applyMiddleware( )
+- To __*ADD*__ middleware to a project import Redux's function: `import { applyMiddleware } from 'redux'`
+- __*NOW*__ within createStore( ) add applyMiddleware( )
 
       createstore( applyMiddleWare( ) )
-- 
+- __*THEN*__ calls to dispatch are calls to the middleware pipeline
+
+      actions pass: middleware ---> to middleware ---> before app reducer
+- Middlewares follow specific nested function structure to work as a pipeline
+
+      const exampleMiddleware = storeAPI => next
+      => action => {
+              // do stuff here
+        return next(action);  
+      }       // pass the action on to the pipeline's next middleware 
+
 ## Intro to Thunks
