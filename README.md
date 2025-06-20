@@ -50,8 +50,9 @@
 ## Intro to Thunks
 - Thunks allow asynchronous functionality in REDUX.
 - A thunk is a higher-order function that wraps the computation we want to perform later.
-- They bundle bits of computation into packages to delay the computation for later
+- Thunks bundle bits of code into packages to compute later
 ## Promise Lifecycle Actions
 - In order to create these satisfying user experiences, we need to keep track of the state our async requests are in at any given moment so that we can reflect those states for the user.
+
 
 
