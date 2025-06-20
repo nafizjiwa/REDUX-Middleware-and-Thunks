@@ -18,26 +18,29 @@
       createAsychThunk() and its extraReducers property
 ## Write Your Own Middleware
 - To __*ADD*__ middleware to a project import Redux's function: `import { applyMiddleware, createStore } from 'redux'`
-- __*NOW*__ within createStore( ) add applyMiddleware( )
+- __*NOW*__ Along with the reducer within createStore( sliceReducer ) add applyMiddleware( )
 
       createstore( applyMiddleWare( ) )
 - __*THEN*__ calls to dispatch are calls to the middleware pipeline
 
       actions pass: middleware ---> to middleware ---> before app reducer
-- Middlewares follow specific nested function structure to work as a pipeline
+#### MIDDLEWARE STRUCTURE [A pipeline of neSted functions ] 
 
-      const exampleMiddleware = storeAPI => next
-      => action => {
-              // Body Performs the Task
-              // Then calls the next middleware with the current action
-        return next(action);        
-      }       // which passes the action on to the pipeline's next middleware 
+                  *** MIDDLEWARE FUNCTION: ***
+      const exampleMiddleware = storeAPI => next =>
+        action => {
+                 // Body Performs the Task
+        return next(action);       
+      }      // This function call to the next middleware with the current action
+            // Passes the action on to the pipeline's next middleware
 - Middlewares have access to: `storeAPI` Which give them access to:
 
         `dispatch`, `getState`, `next` middleware, and dispatched `action`
 - Actions are passed down the pipeline untill the last middleware
-- Last middleware call --> next(action) --> results in dispatching to the store.
+- Last middleware function call --> next(action) --> results in dispatching to the store.
 
-        next(action) ---> becomes storeAPI.dispatch
-  
+        next(action) ---> becomes storeAPI.dispatch [a call to stores contents]
+#### createStore has 3 arguments passed in:
+
+      createStore( arg1=reducer, arg2=initialValueOfTheStore, arg3=applyMiddleware(createMiddleware))
 ## Intro to Thunks
