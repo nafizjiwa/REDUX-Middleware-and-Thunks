@@ -40,7 +40,12 @@
 - Last middleware function call --> next(action) --> results in dispatching to the store.
 
         next(action) ---> becomes storeAPI.dispatch [a call to stores contents]
-#### createStore has 3 arguments passed in:
+#### MIDDLEWARE ARE PASSED INTO createStore with 3 arguments:
 
       createStore( arg1=reducer, arg2=initialValueOfTheStore, arg3=applyMiddleware(createMiddleware))
+      store.dispatch({'The action to dispatch can be a `message`'})
+      store.dispatch(action={type:"some_value", action:"some_value"})
 ## Intro to Thunks
+
+
+
