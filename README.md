@@ -48,6 +48,10 @@
       store.dispatch({'The action to dispatch can be a `message`'})
       store.dispatch(action={type:"some_value", action:"some_value"})
 ## Intro to Thunks
-
+- Thunks allow asynchronous functionality in REDUX.
+- A thunk is a higher-order function that wraps the computation we want to perform later.
+- They bundle bits of computation into packages to delay the computation for later
+## Promise Lifecycle Actions
+- In order to create these satisfying user experiences, we need to keep track of the state our async requests are in at any given moment so that we can reflect those states for the user.
 
 
