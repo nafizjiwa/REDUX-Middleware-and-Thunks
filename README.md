@@ -52,7 +52,8 @@
 - A thunk is a higher-order function that wraps the computation we want to perform later.
 - Thunks bundle bits of code into packages to compute later
 ## Promise Lifecycle Actions
-- In order to create these satisfying user experiences, we need to keep track of the state our async requests are in at any given moment so that we can reflect those states for the user.
+- Good user experiences require advising the user of the state of async requests at any given moment.
+- The Lifecycle of a Promise: begins in a __*pending*__ state and becomes either __*fulfilled or rejected*__.
 
 
 
