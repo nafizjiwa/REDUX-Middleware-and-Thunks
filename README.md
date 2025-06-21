@@ -61,7 +61,11 @@
            a "Pending" action before the operation --> the result operation is "FulFilled" or "Rejected"
 
 ## createAsyncThunk( )
-- `createAsyncThunk( param1, param2 )` a function --> returns __thunk Action Creator__
+- Performs asynchronous tasks in the slice
+- Recieves 2 parameters
+      - Name of the action'[slice name/ action name]
+      - Callback function performs API call and returns a promise result 
+- The function `createAsyncThunk( param1, param2 )` --> returns __thunk Action Creator__
   - Param1 - __Action Type__ 'String Value' --> *'nameOfResourceType/nameOfActionType'*
   - Param2 - __Payload Creator__ Asynchronous Thunk Function (callback) 
       - __Action Creator__ dispatches __Promise lifecycle Actions__ ---> [pending/fulfilled/rejected]
