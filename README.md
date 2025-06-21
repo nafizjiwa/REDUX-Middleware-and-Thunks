@@ -59,9 +59,9 @@
 
         A DISPATCHED ACTION is:
            a "Pending" action before the operation --> the result operation is "FulFilled" or "Rejected" ## createAsyncThunk( )
-- A function `createThunk( param1, param2 )`
+- A function `createThunk( param1, param2 )` --> returns __thunk Action Creator__
   - Param1 - __Action Type__ 'string' --> *"resourceType/actionName"*
-  - Param2 - __Payload Creator__ Asynchronous Thunk Function (callback) generates a __thunk Action Creator__
+  - Param2 - __Payload Creator__ Asynchronous Thunk Function (callback) 
       - __Action Creator__ dispatches __Promise lifecycle Actions__ ---> [pending/fulfilled/rejected]
 
         import { createAsyncThunk } from '@reduxjs/toolkit';
