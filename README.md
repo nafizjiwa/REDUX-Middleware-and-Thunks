@@ -61,15 +61,15 @@
            a "Pending" action before the operation --> the result operation is "FulFilled" or "Rejected"
 
 ## createAsyncThunk( )
-- A function `createAsyncThunk( param1, param2 )` --> returns __thunk Action Creator__
-  - Param1 - __Action Type__ 'string' --> *"resourceType/actionName"*
+- `createAsyncThunk( param1, param2 )` a function --> returns __thunk Action Creator__
+  - Param1 - __Action Type__ 'String Value' --> *'nameOfResourceType/nameOfActionType'*
   - Param2 - __Payload Creator__ Asynchronous Thunk Function (callback) 
       - __Action Creator__ dispatches __Promise lifecycle Actions__ ---> [pending/fulfilled/rejected]
 
         import { createAsyncThunk } from '@reduxjs/toolkit';
 - **Call the function with 2 arguements
 
-         const variableName = createAsyncThunk( 'resourceType/actionName', actionNamePayloadCreator)
+         const variableName = createAsyncThunk( 'ResourceType/ActionType', actionNamePayloadCreator)
 
 - Pass an asynchronous thunk function into createAsyncThunk( ) function returns an action creator that dispatches pending/fulfilled/rejected actions.
 
@@ -77,9 +77,13 @@
               async (arg,thunkAPI) => {
                               // Body of the payload creator  })
 ## Passing Arguments to Thunks
-- Payload Creator receives ( arg and thunkAPI )
+- Payload Creator receives 2 arguments
+  
+           async ( arg & thunkAPI )=>{}
    - arg - first argument passed to thunk action creator
-   - 
- 
+         - can be single value or multiple value
+
+          Single Value --> createAsyncThunk(actionCreatorName(), )
+          Multiple Values --> createAsyncThunk(actionCreatorName(), )
   
 
