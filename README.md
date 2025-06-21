@@ -69,7 +69,17 @@
         import { createAsyncThunk } from '@reduxjs/toolkit';
 - **Call the function with 2 arguements
 
-         const variableName = createAsyncThunk( 'resourceType/actionName', payloadCreator)
+         const variableName = createAsyncThunk( 'resourceType/actionName', actionNamePayloadCreator)
 
-- Input an asynchronous thunk function into createAsyncThunk( ) function returns an action creator that dispatches pending/fulfilled/rejected actions.
+- Pass an asynchronous thunk function into createAsyncThunk( ) function returns an action creator that dispatches pending/fulfilled/rejected actions.
+
+         const variableName = createAsyncThunk( 'resourceType/actionName',
+              async (arg,thunkAPI) => {
+                              // Body of the payload creator  })
+## Passing Arguments to Thunks
+- Payload Creator receives ( arg and thunkAPI )
+   - arg - first argument passed to thunk action creator
+   - 
+ 
+  
 
