@@ -2,10 +2,11 @@
 
 ## Intro 
 - In Redux middleware performs asynchronous operation (as API calls) and then updates the state
+- Asynchronous tasks are tasks that take time to complete
 ## Middleware in Redux
-- Helps customize Redux frameworks: 
+- Helps with Redux side effects: 
    - [Middleware intercepts an action dispatched and passes that action to the reducer]
-   - Redux actions are dispatche to the store and processed by reducers to provide a new state, components that reference the new state are then upate or re-rendered.
+   - Redux actions are dispatched to the store and processed by reducers to provide a new state, components that reference the new state are then upate or re-rendered.
 - Common Tasks Middlewares Perform
   - logging,
   - caching,
@@ -13,11 +14,11 @@
   - crash reporting,
   - routing, and 
   - making asynchronous requests for data
-- A Redux Toolkit function make asynchronous requests possible:
+- In the Redux Toolkit a redux-Thunk function makes asynchronous requests possible:
 
       createAsychThunk() and its extraReducers property
 ## Write Your Own Middleware
-- To __*ADD*__ middleware to a project import Redux's function: `import { applyMiddleware, createStore } from 'redux'`
+- To __*ADD*__ middleware import the Redux function: `import { applyMiddleware, createStore } from 'redux'`
 - __*NOW*__ Along with the reducer within createStore( sliceReducer ) add applyMiddleware( )
 
       createstore( applyMiddleWare( ) )
