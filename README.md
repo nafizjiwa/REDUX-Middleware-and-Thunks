@@ -1,7 +1,7 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-- When we perform an asynchronous operation(API call), based on the call then update the state
+- In Redux middleware performs asynchronous operation (as API calls) and then updates the state
 ## Middleware in Redux
 - Helps customize Redux frameworks: 
    - [Middleware intercepts an action dispatched and passes that action to the reducer]
