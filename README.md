@@ -71,4 +71,5 @@
 
          const variableName = createAsyncThunk( 'resourceType/actionName', payloadCreator)
 
+- Input an asynchronous thunk function into createAsyncThunk( ) function returns an action creator that dispatches pending/fulfilled/rejected actions.
 
