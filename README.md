@@ -55,6 +55,18 @@
 - The Lifecycle of a Promise:
    - begins as __*pending*__ and moves to either __*fulfilled*__ or __*rejected STATES*__.
 - A Good user experience requires advising the user of the __*STATE*__ of the async requests at any moment
-- For asynchronous operations the DISPATCHED ACTION is a "pending" action before the operation and then "fulfilled" or "rejected"  
+- For asynchronous operations:
+
+        A DISPATCHED ACTION is:
+           a "Pending" action before the operation --> the result operation is "FulFilled" or "Rejected" ## createAsyncThunk( )
+- A function `createThunk( param1, param2 )`
+  - Param1 - __Action Type__ 'string' --> *"resourceType/actionName"*
+  - Param2 - __Payload Creator__ Asynchronous Thunk Function (callback) generates a __thunk Action Creator__
+      - __Action Creator__ dispatches __Promise lifecycle Actions__ ---> [pending/fulfilled/rejected]
+
+        import { createAsyncThunk } from '@reduxjs/toolkit';
+- **Call the function with 2 arguements
+
+         const variableName = createAsyncThunk( 'resourceType/actionName', payloadCreator)
 
 
