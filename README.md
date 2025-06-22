@@ -118,11 +118,11 @@
 - NOTE* `createSlice( { OPTIONS OBJECT } )`
 - OPTIONS    --> { name, initialState, reducers } --> creates a slice store with action creators and action types to update the Slice's State
 
-            const usersSlice = createSlice({
+            const [usersSlice] = createSlice({
                  name: 'users',
                  initialState: { users:  [] },
-                 reducers: {
-                      addUser: (state, action) => { 
+                 [reducers]: {
+                      [addUser]: (state, action) => {
                       state.users.push(action.payload) 
                          }        
                  },
