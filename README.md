@@ -148,9 +148,9 @@
                   caseReducer1:(state, action)=>{ },
                },
                extraReducer:{//actions dispatched by action creator with name actionCreator
-                    [actonCreatorAction.pending]:(state,action) => { // function body },
-                    [actonCreatorAction.fulfilled]:(state,action) =>{ // function body },
-                    [actonCreatorAction.rejected]:(state,action) =>{ // function body },
+                    [actonCreatorName.pending]:(state,action) => { // function body },
+                    [actonCreatorName.fulfilled]:(state,action) =>{ // function body },
+                    [actonCreatorName.rejected]:(state,action) =>{ // function body },
                }
        }
        **Store will update in response to each action dispatched by the action creator 
@@ -164,11 +164,13 @@
 |They sit between the dispatching of an action and when it reaches the reducer|
 |This allows the action to be intercepted, modified, delayed, or even cancelled before they affect your state|
 |A thunk is a function returned by another function|
+|Thunks are useful for delaying computation. Instead of executing a bit of code immediately, we bundle it up into a function so that we can execute it later when the function is called|
 |Thunks are useful for delaying computation|
-|Instead of executing a bit of code immediately, we bundle it up into a function so that we can execute it later when the function is called|
+|Creating a store with configureStore( ) includes defaut middleware |
+|Redux Toolkit use middleware and thunks internally when we use createAsyncThunk()|
 |Eg Thunk middleware --> createAsyncThunk( )|
 |creates thunk action creators that handle asynchronous logic like API calls.|
-|createAsyncThunk() is a function that accepts two arguments: a string action type and a function (called action creator).|
+|createAsyncThunk() is a function that accepts two arguments: a string action type and a function (called action creator)|
 |thunkAPI - thunk arguments such as dispatch and getState|
 |3 promise lifecycle actions: pending, fulfilled, rejected|
 |Simplifies handling the lifecycle of a promise|
