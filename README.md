@@ -160,8 +160,10 @@
 |REVEIW NOTES|
 |---|
 |Middleware|
-|Thunks defer computation|
-|createAsyncThunk( ) creates an action creator|
+|Thunks defer computation until app needs it|
+|Eg Thunk middleware createAsyncThunk( )|
+|creates thunk action creators that handle asynchronous logic like API calls.|
+|thunk arguments, such as dispatch and getState|
 |3 promise lifecycle actions: pending, fulfilled, rejected|
 |Simplifies handling the lifecycle of a promise|
 |Promise LifeCycle Action Types = pending, fulfilled, and rejected states|
@@ -170,3 +172,4 @@
 |Creates action creators|
 |ExtraReducers property allows createSlice() to respond to action types generated elsewhere|
 |---------------------------------------------------------------------------------------------------------------------------------------------------------|
+
