@@ -1,36 +1,38 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-- In Redux middleware performs asynchronous operation (as API calls) and then updates the state
+- In Redux, Middleware performs asynchronous operation (as API calls) and then updates the state
 - Asynchronous tasks are tasks that take time to complete
 ## Middleware in Redux
-- Helps with Redux side effects: 
-   - [Middleware intercepts an action dispatched and passes that action to the reducer]
-   - Redux actions are dispatched to the store and processed by reducers to provide a new state, components that reference the new state are then upate or re-rendered.
+- Helps with Redux side effects:
+   - Middleware runs after an action is dispatched and passes that action to the reducer
+   - Redux actions are dispatched to the store, processed by reducers to provide a new state
+   - Components that reference the new state are then upate or re-rendered the new state.
 - Common Tasks Middlewares Perform
-  - logging,
-  - caching,
-  - adding auth tokens to request headers,
-  - crash reporting,
-  - routing, and 
-  - making asynchronous requests for data
-- In the Redux Toolkit a redux-Thunk function makes asynchronous requests possible:
+  - logging, caching, routing, asynchronous requests for data, adding auth tokens to request headers.
+- In the Redux Toolkit a redux-Thunk function:
 
-      createAsychThunk() and its extraReducers property
+      createAsychThunk(for asynchronous requests) and its extraReducers property
 ## Write Your Own Middleware
-- To __*ADD*__ middleware: `import { applyMiddleware, createStore } from 'redux {functions}'`
-- __*INPUT*__ in sliceReducer = createStore( ) input applyMiddleware( )
+- To __*ADD*__ middleware:
 
-      createstore( applyMiddleWare( ) )
-- __*DIPSATCHES*__ Calls to the middleware pipeline
+     import { applyMiddleware, createStore } from 'redux {functions}'
+- __*INPUT*__ in sliceReducers createStore:
 
-      actions are passed: middleware ---> to middleware ---> before app reducer
-#### MIDDLEWARE STRUCTURE [A PIPELINE of NESTED functions ] 
+      sliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
+                              *refers to initial state as empty state value
+      sliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
+                              *refers to no value so if default value is in reducer that value
+                                    would be used as initial state value
+- __*DIPSATCH ACTIONS*__ Actions dispatched will be passed thru the middleware pipeline:
 
-                  *** MIDDLEWARE FUNCTION: ***
+      actions move: middleware ---> to middleware ---> before app reducer
+#### MIDDLEWARE STRUCTURE [IS A PIPELINE of NESTED functions ] 
+
+                  *** MIDDLEWARE FUNCTION STRUCTURE: ***
       const exampleMiddleware = storeAPI => next =>
         action => {
-                 // Body Performs the Task
+                 // Body Performs the TaskS
         return next(action);       
       }      // This function call to the next middleware with the current action
             // Passes the action on to the pipeline's next middleware
@@ -41,9 +43,14 @@
 - Last middleware function call --> next(action) --> results in dispatching to the store.
 
         next(action) ---> becomes storeAPI.dispatch [a call to stores contents]
-#### MIDDLEWARE ARE PASSED INTO createStore with 3 arguments:
+#### MIDDLEWARE IS PASSED INTO createStore with 3 arguments:
 
       const store = createStore( arg1=reducer, arg2=initialValueOfTheStore, arg3=applyMiddleware(createMiddleware))
+      const store = createStore(ReducerName, '', applyMiddleware(middlewareFunction));
+-Dispatching actions to store:   
+
+      store.dispatch({type: 'stringValue', payload:})
+- First taken in by reducer
 ##### To dispatch an action after store created
 
       store.dispatch({'The action to dispatch can be a `message`'})
