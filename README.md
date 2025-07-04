@@ -57,7 +57,14 @@
       store.dispatch(action={type:"some_value", action:"some_value"})
 ## Intro to Thunks
 - Thunks allow asynchronous requests in REDUX.
-- A thunk is a higher-order function it wraps code into packages to compute later
+- Thunks are higher-order functions which wraps the code we want to compute later
+
+         const add = (x,y) => {      -->ADD FUNCTION RETURNS THUNK
+           return () => {            -->THUNK
+             return x + y;            --> FUNCTION RETURNED BY THUNK
+           } 
+         }
+
 ## Promise Lifecycle Actions
 - A Promise lifecycle :
    - begins as __*pending*__ and moves to either __*fulfilled*__ or __*rejected STATES*__.
