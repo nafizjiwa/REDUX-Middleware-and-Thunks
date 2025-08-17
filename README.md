@@ -1,8 +1,12 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-- In Redux, Middleware performs asynchronous operation (as API calls) and then updates the state
-- Asynchronous tasks are tasks that take time to complete
+- Redux Middleware performs asynchronous actions (API calls) to update the state
+- Asynchronous tasks take time to complete
+#### Redux tools to write asynchronous logic
+- Middleware and thunks in REDUX
+- Promise lifecycle in REDUX
+- Redux toolkit allows asynchronous logic 
 ## Middleware in Redux
 - Helps with Redux side effects:
    - Middleware runs after an action is dispatched and passes that action to the reducer
