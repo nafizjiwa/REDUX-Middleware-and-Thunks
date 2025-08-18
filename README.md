@@ -18,7 +18,7 @@
         2. createSlice's extraReducers property
   
 ## Write Your Own Middleware
-- _*ADDING*__ middleware to app:
+- __*ADDING*__ middleware to app:
 
      import { applyMiddleware, createStore } from 'redux {functions}'
 ##### Once middleware is added a call to dispatch is a call to middleware
