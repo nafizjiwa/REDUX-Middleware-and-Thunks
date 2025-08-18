@@ -89,10 +89,10 @@
               }
            }
 
-## createAsyncThunk( )
-- Redux Tookit provides a function to help with asynchronous tasks in a slice
+## createAsyncThunk(2 params)
+- The Redux Tookit function for asynchronous tasks:
 
-         const ThunkActionCreator = createAsyncThunk( 'actionType string' , PayloadCreator)
+        const ThunkActionCreator = createAsyncThunk( 'actionType string' , async callback)
 
 - __*createAsyncThunk( param1, param2 )*__ --> returns __thunk Action Creator__
 
