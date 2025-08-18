@@ -20,8 +20,8 @@
 ## Write Your Own Middleware
 - __*ADDING*__ middleware to app:
 
-     import { applyMiddleware, createStore } from 'redux {functions}'
-##### Once middleware is added a call to dispatch is a call to middleware
+      import { applyMiddleware, createStore } from 'redux {functions}'
+#### Once middleware is added a call to dispatch is a call to middleware
 
       actions --> dispatch --> all MiddleWares --> reducer
 
