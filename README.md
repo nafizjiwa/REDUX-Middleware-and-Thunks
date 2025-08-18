@@ -21,9 +21,13 @@
         2. createSlice's extraReducers property
   
 ## Write Your Own Middleware
-- To __*ADD*__ middleware:
+- *ADDING*__ middleware to app:
 
      import { applyMiddleware, createStore } from 'redux {functions}'
+##### Once middleware is added calls to dispatch are calls to middleware
+
+      actions --> dispatch --> all MiddleWares --> reducer
+
 - __*INPUT*__ in sliceReducers createStore:
 
       sliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
