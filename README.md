@@ -1,9 +1,10 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-- Redux Middleware performs asynchronous actions (like API calls which take time) to update the state
-#### Redux tools used to write asynchronous logic
-- Middleware and thunks
+- Redux Middleware performs asynchronous actions (like lenghty API calls) to update state
+#### Redux tools used to write asynchronous actions
+- Middleware Function
+- Thunks
 - Promise lifecycle
 ## Middleware in Redux
 - Helps with Redux side effects:
@@ -18,16 +19,16 @@
         2. createSlice's extraReducers property
   
 ## Write Your Own Middleware
-- __*ADDING*__ middleware to app:
+- __*ADD*__ `middleware` to app:
 
       import { applyMiddleware, createStore } from 'redux {functions}'
   
-- __*INPUT*__ in createStore (createStore creates Slices):
+- __*INPUT*__ `middleware` into `createStore( )`:
 
-      sliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
+      creates_A_SliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
                               ' ' = initial state is empty hence reducers default value will equal initial state value
 
-- __*DIPSATCH ACTIONS*__ Actions dispatched will be passed thru the middleware pipeline:
+- __*DIPSATCH ACTIONS*__ The Dispatched Action is passed thru the middleware pipeline:
 
       actions move: middleware ---> to middleware ---> before app reducer
 #### Once middleware is added a call to dispatch is a call to middleware
@@ -41,7 +42,7 @@
    #### *** MIDDLEWARE STRUCTURE: ***
       const exampleMiddlewareFunction = storeAPI => next =>
         action => {
-                          // Body Performs the Task
+              // Function Body Performs the Task
         return next(action);   //Here a call to next middleware function with action
       }           // Passes the action to next middleware in pipeline
             
@@ -62,23 +63,31 @@
       store.dispatch({'The action to dispatch can be a `message`'})
       store.dispatch(action={type:"some_value", action:"some_value"})
 ## Intro to Thunks
-- Thunks allow asynchronous requests in REDUX.
-- Thunks are higher-order functions which wraps the code we want to compute later
+- Redux uses Thunks for asynchronous requests.
+- Thunks are higher-order functions which wrap and passes the code we want to compute later
 
-         const add = (x,y) => {      -->ADD FUNCTION RETURNS THUNK
+         const add = (x,y) => {      -->THE ADD FUNCTION RETURNS A THUNK
            return () => {            -->THUNK
-             return x + y;            --> FUNCTION RETURNED BY THUNK
+             return x + y;           --> The FUNCTION RETURNED BY THUNK
            } 
          }
 
 ## Promise Lifecycle Actions
 - A Promise lifecycle :
    - begins as __*pending*__ and moves to either __*fulfilled*__ or __*rejected STATES*__.
-- A Good user experience requires advising the user of the __*STATE*__ of the async requests at any moment
+- A Good user experience is advising the user of the __*STATE*__ of the async requests:
+  `with a message, a loading sign or error message`
 - For asynchronous operations:
 
-        A DISPATCHED ACTION is:
-           a "Pending" action before the operation --> the result operation is "FulFilled" or "Rejected"
+        A DISPATCHED ACTION to the store is:
+        const fetchrUserById =(id) => {
+           "Pending" store shows data requested
+              try{
+              "FulFilled" store data updated or
+              } catch(err){
+              "Rejected"  store data failed to fetch
+              }
+           }
 
 ## createAsyncThunk( )
 - Redux Tookit provides a function to help with asynchronous tasks in a slice
