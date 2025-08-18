@@ -21,11 +21,8 @@
 - __*ADDING*__ middleware to app:
 
       import { applyMiddleware, createStore } from 'redux {functions}'
-#### Once middleware is added a call to dispatch is a call to middleware
-
-      actions --> dispatch --> all MiddleWares --> reducer
-
-- __*INPUT*__ in sliceReducers createStore:
+  
+- __*INPUT*__ in createStore (createStore creates Slices):
 
       sliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
                               ' ' = initial state is empty hence reducers default value will equal initial state value
@@ -33,22 +30,25 @@
 - __*DIPSATCH ACTIONS*__ Actions dispatched will be passed thru the middleware pipeline:
 
       actions move: middleware ---> to middleware ---> before app reducer
-#### MIDDLEWARE STRUCTURE [IS A PIPELINE of NESTED functions ] 
+#### Once middleware is added a call to dispatch is a call to middleware
 
-                  *** MIDDLEWARE FUNCTION STRUCTURE: ***
-      const exampleMiddleware = storeAPI => next =>
-        action => {
-                 // Body Performs the TaskS
-        return next(action);       
-      }      // This function call to the next middleware with the current action
-            // Passes the action on to the pipeline's next middleware
-- Middlewares have access to: `storeAPI` Which give them access to:
+      actions --> dispatch --> all MiddleWares --> reducer
+#### MIDDLEWARE STRUCTURE (It'S A PIPELINE of NESTED functions )
+- Middlewares have access to: `storeAPI` and the stores functions:
 
         `dispatch`, `getState`, `next` middleware, and dispatched `action`
-- Actions are passed down the pipeline untill the last middleware
-- Last middleware function call --> next(action) --> results in dispatching to the store.
 
-        next(action) ---> becomes storeAPI.dispatch [a call to stores contents]
+   #### *** MIDDLEWARE STRUCTURE: ***
+      const exampleMiddlewareFunction = storeAPI => next =>
+        action => {
+                          // Body Performs the Task
+        return next(action);   //Here a call to next middleware function with action
+      }           // Passes the action to next middleware in pipeline
+            
+- Actions are passed down the pipeline untill the last middleware
+- The last middleware function call --> next(action) --> results in a dispatch to the store.
+
+        next(action) ---> becomes storeAPI.dispatch(a call to the store and its funcitons)
 #### MIDDLEWARE IS PASSED INTO createStore with 3 arguments:
 
       const store = createStore( arg1=reducer, arg2=initialValueOfTheStore, arg3=applyMiddleware(createMiddleware))
