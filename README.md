@@ -9,14 +9,17 @@
 - Redux toolkit allows asynchronous logic 
 ## Middleware in Redux
 - Helps with Redux side effects:
-   - Middleware runs after an action is dispatched and passes that action to the reducer
+   - Middleware runs after an action is dispatched and before the action is passed to the reducer
    - Redux actions are dispatched to the store, processed by reducers to provide a new state
    - Components that reference the new state are then upate or re-rendered the new state.
 - Common Tasks Middlewares Perform
   - logging, caching, routing, asynchronous requests for data, adding auth tokens to request headers.
-- In the Redux Toolkit a redux-Thunk function:
+- To make asynchronous requests Redux Toolkit uses:
 
-      createAsychThunk(for asynchronous requests) and its extraReducers property
+        1. createAsychThunk(asynchronous requests)
+                 - uses middleware and thunks
+        2. createSlice's extraReducers property
+  
 ## Write Your Own Middleware
 - To __*ADD*__ middleware:
 
