@@ -1,40 +1,35 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-- Redux Middleware performs asynchronous actions (API calls) to update the state
-- Asynchronous tasks take time to complete
-#### Redux tools to write asynchronous logic
-- Middleware and thunks in REDUX
-- Promise lifecycle in REDUX
-- Redux toolkit allows asynchronous logic 
+- Redux Middleware performs asynchronous actions (like API calls which take time) to update the state
+#### Redux tools used to write asynchronous logic
+- Middleware and thunks
+- Promise lifecycle
 ## Middleware in Redux
 - Helps with Redux side effects:
    - Middleware runs after an action is dispatched and before the action is passed to the reducer
    - Redux actions are dispatched to the store, processed by reducers to provide a new state
-   - Components that reference the new state are then upate or re-rendered the new state.
-- Common Tasks Middlewares Perform
-  - logging, caching, routing, asynchronous requests for data, adding auth tokens to request headers.
-- To make asynchronous requests Redux Toolkit uses:
+   - Components which need the new state are re-rendered with the new state.
+#### Common Tasks Middlewares Perform - logging, caching, routing, asynchronous data requests, token authoritzations.
+- To make asynchronous requests the Redux Toolkit uses:
 
-        1. createAsychThunk(asynchronous requests)
+        1. createAsychThunk(input asynchronous request)
                  - uses middleware and thunks
         2. createSlice's extraReducers property
   
 ## Write Your Own Middleware
-- *ADDING*__ middleware to app:
+- _*ADDING*__ middleware to app:
 
      import { applyMiddleware, createStore } from 'redux {functions}'
-##### Once middleware is added calls to dispatch are calls to middleware
+##### Once middleware is added a call to dispatch is a call to middleware
 
       actions --> dispatch --> all MiddleWares --> reducer
 
 - __*INPUT*__ in sliceReducers createStore:
 
       sliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
-                              *refers to initial state as empty state value
-      sliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
-                              *refers to no value so if default value is in reducer that value
-                                    would be used as initial state value
+                              ' ' = initial state is empty hence reducers default value will equal initial state value
+
 - __*DIPSATCH ACTIONS*__ Actions dispatched will be passed thru the middleware pipeline:
 
       actions move: middleware ---> to middleware ---> before app reducer
