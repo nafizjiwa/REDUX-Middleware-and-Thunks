@@ -123,7 +123,7 @@
             //action creator
             const fetchUserById = createAsyncThunk(
                    'users/fetchUserById',              // action type
-                   async (userId, thunkAPI) => {      // payload creator
+                   async(userId, thunkAPI) => {      // payload creator
                           const response = await fetchUser(userId)
                           return response.data
                          }
