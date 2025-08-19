@@ -145,8 +145,9 @@
                                           `fetchUserById.rejected`
 ## Using createSlice( ) with Async Action Creators
 #### - REFRESH NOTE* `cont createASliceofStore = createSlice( { accepts an OPTION argument} )` </br>
-     - `{ OPTIONS Object }--> { contains configuration parmeters = name, initialState, reducers }`
-              --> Parameters are used to generate Slice of store and functions to update SLICE (action creators, action types).</br>
+   - `{ OPTIONS Object }--> { contains configuration parmeters = name, initialState, reducers }`
+        --> Parameters are used to generate Slice of store and functions to update SLICE (action creators, action types).</br>
+              
       - Slices responds to an action creator:
   
             const [usersSlice] = createSlice({
