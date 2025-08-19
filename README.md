@@ -104,16 +104,21 @@
 - Pass an asynchronous thunk function into createAsyncThunk( ) function returns an action creator that dispatches the action types/actions --> pending/fulfilled/rejected.
 
 ## Passing Arguments to Thunks/Payload Creator
-- `createAsyncThunk('arg1 = actiontype', arg2 = async function (arg1 = arg, arg2 = thunkAPI) )
-  
-           async ( arg & thunkAPI )=>async( payload creator arguments )
-   - arg - # of arguments passed to thunk action creator
-     
-          Single Value --> createAsyncThunk(actionCreatorName(value1), )
-          Multiple Values an object --> createAsyncThunk(actionCreatorName({key1: value1, key2: value2}), )
-          E6 Destructure --> createAsyncThunk(actionCreatorName({ value1,value2 },)
-  
-   - thunkAPI - An object containing methods store's dispatch, getState()
+- 2 arguments of  `createAsyncThunk('actiontype',async function() )
+- 2 arguments of async function/action creator:
+
+           async( arg, thunkAPI ) => { }
+- arg - can take one arguments
+
+           async( arg1, thunkAPI ) => { }
+- arg - or multiple arguments using an object
+
+           async( { arg1, arg2 }, thunkAPI ) => { }  
+ - To unpack the object E6 Destructure -->
+
+               createAsyncThunk( 'actionType',
+                    async{ value1,value2 }, thunkAPI)
+- The payload creator 2nd arg thunkAPI - Is an object containing methods: store's dispatch, getState()
  
             //action creator
             const fetchUserById = createAsyncThunk(
