@@ -104,9 +104,9 @@
 - Pass an asynchronous thunk function into createAsyncThunk( ) function returns an action creator that dispatches the action types/actions --> pending/fulfilled/rejected.
 
 ## Passing Arguments to Thunks/Payload Creator
-- The async function passed to `createAsyncThunk` receives 2 arguments
+- `createAsyncThunk('arg1 = actiontype', arg2 = async function (arg1 = arg, arg2 = thunkAPI) )
   
-           async ( arg & thunkAPI )=>{ payload creator arguments}
+           async ( arg & thunkAPI )=>async( payload creator arguments )
    - arg - # of arguments passed to thunk action creator
      
           Single Value --> createAsyncThunk(actionCreatorName(value1), )
