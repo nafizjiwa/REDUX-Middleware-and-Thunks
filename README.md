@@ -90,18 +90,16 @@
            }
 
 ## createAsyncThunk(2 params)
-- The Redux Tookit function for asynchronous tasks:
-
-        const ThunkActionCreator = createAsyncThunk( 'actionType string' , async callback)
-
+- The Redux Tookit function to manage asynchronous operations like API calls
+- It automatically generates action types for the promise lifecycle: pending/fulfilled/rejected
 - __*createAsyncThunk( param1, param2 )*__ --> returns __thunk Action Creator__
 
-        import { createAsyncThunk } from '@reduxjs/toolkit';
-        
-        const actionName = createAsyncThunk( 'SliceName/ActionName', //Action Type string
-              async (arg,thunkAPI) => {                  //Async Thunk function
-                              // Body of the payload creator
-                               // returns a promise })
+        import { createAsyncThunk } from '@reduxjs/toolkit'; //1st import
+           //2nd call createAsyncThunk with 2 arguments
+        const actionName = createAsyncThunk( 'SliceName/ActionName', //1. 'Action Type'
+              async (arg,thunkAPI) => {               //2. Async callback fnc or Payload Creator
+                  // Body of the payload creator returns a promise
+            })
 
 - Pass an asynchronous thunk function into createAsyncThunk( ) function returns an action creator that dispatches the action types/actions --> pending/fulfilled/rejected.
 
@@ -119,8 +117,8 @@
  
             //action creator
             const fetchUserById = createAsyncThunk(
-                   'users/fetchUserById', // action type
-                   async (userId, thunkAPI) => { // payload creator
+                   'users/fetchUserById',              // action type
+                   async (userId, thunkAPI) => {      // payload creator
                           const response = await fetchUser(userId)
                           return response.data
                          }
