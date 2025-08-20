@@ -1,10 +1,10 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-#### Redux tools used to write asynchronous actions (Long API calls) and update state
-- The Middleware Function - applyMiddleware( )
-- Thunks
-- Promise lifecycle
+#### In Redux asynchronous actions (Long API calls) to update state REQUIRES TOOLS:
+1. The Middleware Function - applyMiddleware( )
+2. Thunks
+3. Promise lifecycle
 ## Middleware in Redux
 - Helps with Redux side effects:
    - Middleware runs after an action is dispatched and before the action is passed to the reducer
@@ -62,8 +62,7 @@
       store.dispatch({'The action to dispatch can be a `message`'})
       store.dispatch(action={type:"some_value", action:"some_value"})
 ## Intro to Thunks
-- Redux uses Thunks for asynchronous requests.
-- Thunks are higher-order functions which wrap and pass the code we want to compute later
+- Thunks are higher-order functions which wraps code and passes it on to compute later
 
          const add = (x,y) => {      -->THE ADD FUNCTION RETURNS A THUNK
            return () => {            -->THUNK
@@ -74,14 +73,14 @@
 ## Promise Lifecycle Actions
 - A Promise lifecycle :
    - STARTS with __*pending*__ and moves to __*fulfilled*__ or __*rejected STATES*__.
-- A Good user experience is showing the uswer the __*STATE*__ of the async requests.
+- The PROMISE LIFECYCLE helps to shows the __*STATE*__ of the async requests.
 
         const fetchrUserById =(id) => {
-           "Pending"  -- NOTIFIES THE STORE THE DATA has been requested
+           "PENDIGN"  -- NOTIFIES THE STORE THE DATA has been requested
               try{
-              "FulFilled"  -- NOTIFIES the STORE THE DATA is updated or
+              "FULFILLED"  -- NOTIFIES the STORE THE DATA is updated or
               } catch(err){
-              "Rejected"   -- NOTIFIES THE STORE THE DATA failed to fetch 
+              "REJECTED"   -- NOTIFIES THE STORE THE DATA failed to fetch 
               }   
            }
 
