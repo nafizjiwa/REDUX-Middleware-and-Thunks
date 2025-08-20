@@ -64,7 +64,7 @@
       store.dispatch(action={type:"some_value", action:"some_value"})
 ## Intro to Thunks
 - Redux uses Thunks for asynchronous requests.
-- Thunks are higher-order functions which wrap and passes the code we want to compute later
+- Thunks are higher-order functions which wrap and pass the code we want to compute later
 
          const add = (x,y) => {      -->THE ADD FUNCTION RETURNS A THUNK
            return () => {            -->THUNK
@@ -185,10 +185,9 @@
 
 |REVEIW NOTES|
 |---|
-|Middleware allows the store to write asynchronous logic|
-|They sit between the dispatching of an action and when it reaches the reducer|
-|This allows the action to be intercepted, modified, delayed, or even cancelled before they affect your state|
-|Redux allows you to add additional functionality to the store by applying middleware|
+|The STORE uses Middleware to write asynchronous actions|
+|REDUX Middleware is a function that sits between dispatching an action and the moment it reaches the reducer|
+|The actions can be intercepted, modified, delayed, or cancelled before they affect|
 |A thunk is a function returned by another function|
 |Thunks are useful for delaying computation. Instead of executing a bit of code immediately, we bundle it up into a function so that we can execute it later when the function is called|
 |Thunks are useful for delaying computation|
