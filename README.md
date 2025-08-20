@@ -74,24 +74,21 @@
 
 ## Promise Lifecycle Actions
 - A Promise lifecycle :
-   - begins as __*pending*__ and moves to either __*fulfilled*__ or __*rejected STATES*__.
-- A Good user experience is advising the user of the __*STATE*__ of the async requests:
-  `with a message, a loading sign or error message`
-- For asynchronous operations:
+   - STARTS with __*pending*__ and moves to __*fulfilled*__ or __*rejected STATES*__.
+- A Good user experience is showing the uswer the __*STATE*__ of the async requests.
 
-        A DISPATCHED ACTION to the store is:
         const fetchrUserById =(id) => {
-           "Pending" store shows data requested
+           "Pending"  -- NOTIFIES THE STORE THE DATA has been requested
               try{
-              "FulFilled" store data updated or
+              "FulFilled"  -- NOTIFIES the STORE THE DATA is updated or
               } catch(err){
-              "Rejected"  store data failed to fetch
-              }
+              "Rejected"   -- NOTIFIES THE STORE THE DATA failed to fetch 
+              }   
            }
 
 ## createAsyncThunk(2 params)
-- The Redux Tookit function to manage asynchronous operations like API calls
-- It automatically generates action types for the promise lifecycle: pending/fulfilled/rejected
+- THE REDUX TOOLKIT FUNCTION to manage asynchronous actions (eg. API calls)
+- It generates action types `pending/fulfilled/rejected` for the promise lifecycle. 
 - __*createAsyncThunk( param1, param2 )*__ --> returns __thunk Action Creator__
 
         import { createAsyncThunk } from '@reduxjs/toolkit'; //1st import
