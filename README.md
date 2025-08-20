@@ -176,10 +176,11 @@
        }
   
        const SliceofStateName = createSlice(configObject)
-##### - extraReducers allows createSlice() to respond to action types generated elsewhere
+#### - extraReducers allows createSlice() to respond to action types generated elsewhere
 
 |REVEIW NOTES|
 |---|
+|Redux toolkit tools createSlice( ) and createAsyncThunk( )|
 |The STORE uses Middleware to write asynchronous actions|
 |REDUX Middleware is a function that sits between dispatching an action and the moment it reaches the reducer|
 |The actions can be intercepted, modified, delayed, or cancelled before they affect|
