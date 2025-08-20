@@ -149,16 +149,16 @@
    - `{ OPTIONS is an Object }` --> { contains config params = name, initialState, reducers, `EXTRA REDUCERS`}
       --> Parameters are used to generate a Slice of the store and functions to update SLICE (action creators, action types).</br>
 #### - A SLICE will RESPOND TO ACTION CREATORS with a type: `slicesName.actions.actionType`
-##### - usersSlice SLICE responds to ACTION CREATORS ==> `usersSlice.actions.addUser`
+##### - The SLICE `usersSlice` will respond to ACTION CREATORS ==> `usersSlice.actions.addUser`
 
          const usersSlice = createSlice({
             //code
              reducers: {           
                  addUser:(state,action)=> { //code  }        
             },  })
-##### - How does this SLICE respond to ACTION TYPES of `createAsyncThunk('users/fetchUserById' )`?
-- The SLICE uses the `extraReducers property` of createSlice().
-##### For example: How does this SLICE respond to Action Creator created by Thunk
+##### - How does this SLICE respond to ACTION TYPES created by `createAsyncThunk('users/fetchUserById' )`?
+- Using the `extraReducers property` of createSlice().
+##### For example: THE Action Creators created thus by Thunk
 
        const actionCreatorName = createAsyncThunk(
                'actionType',
@@ -166,8 +166,8 @@
                       // function body fetches data
                     }
        );
-       **Configuration Object 
-       const configObject = {
+       
+       const configObject = {           **Configuration Object 
                name:, initialState:,
                reducers:{
                   caseReducer1:(state, action)=>{ },
@@ -178,8 +178,7 @@
                     [actonCreatorName.rejected]:(state,action) =>{ // function body },
                }
        }
-       **Store will update in response to each action dispatched by the action creator 
-       **Slice of State store
+  
        const SliceofStateName = createSlice(configObject)
   
 
@@ -192,11 +191,11 @@
 |A thunk is a function returned by another function|
 |Thunks are useful for delaying computation. Instead of executing a bit of code immediately, we bundle it up into a function so that we can execute it later when the function is called|
 |Thunks are useful for delaying computation|
-|Creating a store with configureStore( ) includes defaut middleware |
+|Creating a store with configureStore( ) includes default middleware |
 |Redux Toolkit use middleware and thunks internally when we use createAsyncThunk()|
 |Eg Thunk middleware --> createAsyncThunk( )|
 |creates thunk action creators that handle asynchronous logic like API calls.|
-|createAsyncThunk() is a function that accepts two arguments: a string action type and a function (called action creator)|
+|createAsyncThunk() function accepts 2 arguments: 'action type' string and a function (called action creator)|
 |thunkAPI - thunk arguments such as dispatch and getState|
 |3 promise lifecycle actions: pending, fulfilled, rejected|
 |Simplifies handling the lifecycle of a promise|
