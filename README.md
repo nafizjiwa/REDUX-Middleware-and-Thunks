@@ -1,9 +1,8 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-- Redux Middleware performs asynchronous actions (like lenghty API calls) to update state
-#### Redux tools used to write asynchronous actions
-- Middleware Function
+#### Redux tools used to write asynchronous actions (Long API calls) and update state
+- The Middleware Function - applyMiddleware( )
 - Thunks
 - Promise lifecycle
 ## Middleware in Redux
