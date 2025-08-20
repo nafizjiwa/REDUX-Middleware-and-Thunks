@@ -149,16 +149,16 @@
    - `{ OPTIONS is an Object }` --> { contains config params = name, initialState, reducers, `EXTRA REDUCERS`}
       --> Parameters are used to generate a Slice of the store and functions to update SLICE (action creators, action types).</br>
 #### - A SLICE will RESPOND TO ACTION CREATORS with a type: `slicesName.actions.actionType`
-##### - The SLICE `usersSlice` will respond to ACTION CREATORS ==> `usersSlice.actions.addUser`
+##### - The SLICE `usersSlice` will respond to ACTION CREATORS ==> `usersSlice.actions.addUser` but if won't be affected by action creators of a Thunk
 
          const usersSlice = createSlice({
             //code
              reducers: {           
                  addUser:(state,action)=> { //code  }        
             },  })
-##### - How does this SLICE respond to ACTION TYPES created by `createAsyncThunk('users/fetchUserById' )`?
+##### - How does this SLICE respond to ACTION TYPES created by a `createAsyncThunk('users/fetchUserById' )`?
 - Using the `extraReducers property` of createSlice().
-##### For example: THE Action Creators created thus by Thunk
+##### EG.: THIS async Action Creator created by this Thunk will generate 3 action types
 
        const actionCreatorName = createAsyncThunk(
                'actionType',
@@ -166,8 +166,9 @@
                       // function body fetches data
                     }
        );
-       
-       const configObject = {           **Configuration Object 
+
+#### For any SLICE to respond the action types of a Thunk the actions must be added into the SLICE'S extra reducer property *BELOW*
+            const configObject = {           **Configuration Object 
                name:, initialState:,
                reducers:{
                   caseReducer1:(state, action)=>{ },
@@ -180,7 +181,7 @@
        }
   
        const SliceofStateName = createSlice(configObject)
-  
+##### - extraReducers allows createSlice() to respond to action types generated elsewhere
 
 |REVEIW NOTES|
 |---|
