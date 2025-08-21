@@ -21,7 +21,7 @@
 ## Write Your Own Middleware
 - To __*ADD*__ `middleware` to app use redux function applyMiddleware:
 
-      import { applyMiddleware, createStore } from 'redux {functions}'
+      import { applyMiddleware, createStore } from 'redux'
   
 - __*INPUT*__ the `middleware` function into `createStore( )` with applyMiddleware:
 
@@ -37,22 +37,19 @@
 
       actions --> dispatch --> all MiddleWares --> reducer
 
-#### *** MIDDLEWARE STRUCTURE (A NESTED PIPLINE OF THESE FUNCTION): ***
-- Middlewares have access to the: `storeAPI` and its functions:
-- `dispatch`, `getState`, `next` middleware, and dispatched `action`
+#### *** MIDDLEWARE STRUCTURE (A NESTED PIPLINE OF THESE FUNCTIONS BELOW ): ***
+- Middleware has access to: `storeAPI` see below:
+- storeAPI functions: `dispatch`, `getState`, `next` middleware, and dispatched `action`
 
       const exampleMiddlewareFunction = storeAPI => next =>
         action => {
-            store.API.getState()  // Function Body Performs the Task to get state
-        return next(action);   //THIS IS A call to next middleware function
+           store.API.getState()    // Function Body Performs the Task to get state
+        return next(action);     //THIS IS A call to next middleware function
       }                        // ACTION IS PASSED to next middleware in pipeline
             
-- WHEN ACTION REACHES last middleware function:
+- WHEN ACTION REACHES the last middleware in pipeline:
 
         next(action) ---> becomes storeAPI.dispatch(action) - an ACTION dipatched to the store
-#### MIDDLEWARE IS PASSED to STORE with createStore's 3rd argument:
-     
-      const store = createStore(ReducerName, '', applyMiddleware(middlewareFunction));
 ##### To dispatch an action: after store created
 
       store.dispatch({'The action to dispatch can be a `message`'})
