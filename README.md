@@ -69,7 +69,7 @@
 - The PROMISE LIFECYCLE helps to shows the __*STATE*__ of the async requests.
 
         const fetchrUserById =(id) => {
-           "PENDIGN"  -- NOTIFIES THE STORE THE DATA has been requested
+           "PENDING"  -- NOTIFIES THE STORE THE DATA has been requested
               try{
               "FULFILLED"  -- NOTIFIES the STORE THE DATA is updated or
               } catch(err){
