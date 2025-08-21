@@ -19,49 +19,44 @@
         2. createSlice's extraReducers property
   
 ## Write Your Own Middleware
-- __*ADD*__ `middleware` to app:
+- To __*ADD*__ `middleware` to app use redux function applyMiddleware:
 
       import { applyMiddleware, createStore } from 'redux {functions}'
   
-- __*INPUT*__ `middleware` into `createStore( )`:
+- __*INPUT*__ the `middleware` function into `createStore( )` with applyMiddleware:
 
-      creates_A_SliceReducer = createstore( reducer, '', applyMiddleWare(PASSED IN MIDDLEWARE ) )
-                              ' ' = initial state is empty hence reducers default value will equal initial state value
-
+      creates_A_SliceReducer = createstore(
+              reducer,
+              intialState, 
+              applyMiddleware( middleware1, middleware2, middleware3 )
+        )
 - __*DIPSATCH ACTIONS*__ The Dispatched Action is passed thru the middleware pipeline:
 
       actions move: middleware ---> to middleware ---> before app reducer
 #### Once middleware is added a call to dispatch is a call to middleware
 
       actions --> dispatch --> all MiddleWares --> reducer
-#### MIDDLEWARE STRUCTURE (It'S A PIPELINE of NESTED functions )
-- Middlewares have access to: `storeAPI` and the stores functions:
 
-        `dispatch`, `getState`, `next` middleware, and dispatched `action`
+#### *** MIDDLEWARE STRUCTURE (A NESTED PIPLINE OF THESE FUNCTION): ***
+- Middlewares have access to the: `storeAPI` and its functions:
+- `dispatch`, `getState`, `next` middleware, and dispatched `action`
 
-   #### *** MIDDLEWARE STRUCTURE: ***
       const exampleMiddlewareFunction = storeAPI => next =>
         action => {
-              // Function Body Performs the Task
-        return next(action);   //Here a call to next middleware function with action
-      }           // Passes the action to next middleware in pipeline
+            store.API.getState()  // Function Body Performs the Task to get state
+        return next(action);   //THIS IS A call to next middleware function
+      }                        // ACTION IS PASSED to next middleware in pipeline
             
-- Actions are passed down the pipeline untill the last middleware
-- The last middleware function call --> next(action) --> results in a dispatch to the store.
+- WHEN ACTION REACHES last middleware function:
 
-        next(action) ---> becomes storeAPI.dispatch(a call to the store and its funcitons)
-#### MIDDLEWARE IS PASSED INTO createStore with 3 arguments:
-
-      const store = createStore( arg1=reducer, arg2=initialValueOfTheStore, arg3=applyMiddleware(createMiddleware))
+        next(action) ---> becomes storeAPI.dispatch(action) - an ACTION dipatched to the store
+#### MIDDLEWARE IS PASSED to STORE with createStore's 3rd argument:
+     
       const store = createStore(ReducerName, '', applyMiddleware(middlewareFunction));
--Dispatching actions to store:   
-
-      store.dispatch({type: 'stringValue', payload:})
-- First taken in by reducer
-##### To dispatch an action after store created
+##### To dispatch an action: after store created
 
       store.dispatch({'The action to dispatch can be a `message`'})
-      store.dispatch(action={type:"some_value", action:"some_value"})
+      store.dispatch(action={type:"some_value", payload:"some_value"})
 ## Intro to Thunks
 - Thunks are higher-order functions which wraps code and passes it on to compute later
 
