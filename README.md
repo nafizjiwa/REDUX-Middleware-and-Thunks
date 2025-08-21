@@ -186,9 +186,8 @@
 |The actions can be intercepted, modified, delayed, or cancelled before they affect|
 |Applying REDUX middleware provides additional store functionality|
 |A thunk is a function returned by another function|
-|Thunks are useful for delaying computation. Instead of executing a bit of code immediately, we bundle it up into a function so that we can execute it later when the function is called|
-|Thunks are useful for delaying computation|
-|Creating a store with configureStore( ) includes middleware |
+|Thunks are useful for delaying computation until it is needed by an application it is executed later when the function is called|
+|Creating a store with configureStore( ) includes middleware internally |
 |Redux Toolkit's createAsyncThunk() uses middleware and thunks internally|
 |Eg Thunk middleware --> createAsyncThunk( )|
 |creates thunk action creators that handle asynchronous logic like API calls.|
