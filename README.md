@@ -1,10 +1,11 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-#### In Redux asynchronous actions (Long API calls) to update state REQUIRES TOOLS:
+#### In Redux asynchronous actions to update state (Like long API calls) involves:
 1. The Middleware Function - applyMiddleware( )
 2. Thunks
 3. Promise lifecycle
+#### REDUX toolkit functions are configureStore( ), createSlice( ), createAsyncThunk( )   
 ## Middleware in Redux
 - Helps with Redux side effects:
    - Middleware runs after an action is dispatched and before the action is passed to the reducer
