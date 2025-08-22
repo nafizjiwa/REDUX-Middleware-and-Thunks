@@ -136,21 +136,18 @@
                   `actionType/pending` -- `fetchUserById.pending`
                                           `fetchUserById.fulfilled`
                                           `fetchUserById.rejected`
-## Using createSlice( ) with Async Action Creators
-#### - REFRESH NOTE* `createSlice( { accepts an OPTIONS argument} ) = const creates_A_Slice_Of_Store ` </br>
+## Using createSlice( )'s extraReducer with Async Action Creators
+#### - NOTE* `createSlice( { accepts an OPTIONS argument} ) => creates_A_Slice_Of_Store ` </br>
    - `{ OPTIONS is an Object }` --> { contains config params = name, initialState, reducers, `EXTRA REDUCERS`}
-      --> Parameters are used to generate a Slice of the store and functions to update SLICE (action creators, action types).</br>
-#### - A SLICE will RESPOND TO ACTION CREATORS with a type: `slicesName.actions.actionType`
-##### - The SLICE `usersSlice` will respond to ACTION CREATORS ==> `usersSlice.actions.addUser` but if won't be affected by action creators of a Thunk
+      --> Parameters generate a Slice of the store and functions to update SLICE'S STATE (action creators, action types).</br>
+#### - SLICE'S RESPOND TO THEIR OWN  ACTION CREATORS: `slicesName.actions.actionType` NOT AFFECTED BY Thunk ACTION CREATORS
 
          const usersSlice = createSlice({
-            //code
+                       ==> responds to ACTION CREATORS ==> `usersSlice.actions.addUser`
              reducers: {           
                  addUser:(state,action)=> { //code  }        
             },  })
-##### - How does this SLICE respond to ACTION TYPES created by a `createAsyncThunk('users/fetchUserById' )`?
-- Using the `extraReducers property` of createSlice().
-##### EG.: THIS async Action Creator created by this Thunk will generate 3 action types
+##### - FOR THIS SLICE to respond to ACTION TYPES OF A THUNK below.
 
        const actionCreatorName = createAsyncThunk(
                'actionType',
@@ -159,7 +156,8 @@
                     }
        );
 
-#### For any SLICE to respond the action types of a Thunk the actions must be added into the SLICE'S extra reducer property *BELOW*
+#### EG. ADD THE 3 ACTION TYPES CREATED BY THE Thunk TO A SLICE'S extraReducer property
+
             const configObject = {           **Configuration Object 
                name:, initialState:,
                reducers:{
@@ -173,7 +171,7 @@
        }
   
        const SliceofStateName = createSlice(configObject)
-#### - extraReducers allows createSlice() to respond to action types generated elsewhere
+#### - extraReducers allows createSlice() to respond to action types generated anywhere else
 
 |REVEIW NOTES|
 |---|
