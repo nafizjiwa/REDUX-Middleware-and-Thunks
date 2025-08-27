@@ -136,18 +136,19 @@
                   `actionType/pending` -- `fetchUserById.pending`
                                           `fetchUserById.fulfilled`
                                           `fetchUserById.rejected`
-## Using createSlice( )'s extraReducer with Async Action Creators
-#### - NOTE* `createSlice( { accepts an OPTIONS argument} ) => creates_A_Slice_Of_Store ` </br>
+## Using createSlice( )'s `extraReducer` with Async (Thunk) Action Creators
+#### - NOTE* `createSlice( {accepts an OPTIONS argument} ) => creates_A_Slice_Of_Store ` </br>
    - `{ OPTIONS is an Object }` --> { contains config params = name, initialState, reducers, `EXTRA REDUCERS`}
-      --> Parameters generate a Slice of the store and functions to update SLICE'S STATE (action creators, action types).</br>
-#### - SLICE'S RESPOND TO THEIR OWN  ACTION CREATORS: `slicesName.actions.actionType` NOT AFFECTED BY Thunk ACTION CREATORS
+      --> The Parameters generate a Slice of the store with functions to update SLICE'S STATE (action creators, action types).</br>
+#### - The extraReducer property allows createSlice() to respond to action types generated anywhere else not only in the Slice
+#### - SLICE'S RESPOND TO THEIR OWN  ACTION CREATORS: `slicesName.actions.actionType` they are NOT AFFECTED BY Thunk ACTION CREATORS
 
          const usersSlice = createSlice({
                        ==> responds to ACTION CREATORS ==> `usersSlice.actions.addUser`
              reducers: {           
                  addUser:(state,action)=> { //code  }        
             },  })
-##### - FOR THIS SLICE to respond to ACTION TYPES OF A THUNK below.
+##### - FOR THIS SLICE to respond to Thunk ACTION TYPE below.
 
        const actionCreatorName = createAsyncThunk(
                'actionType',
@@ -156,20 +157,17 @@
                     }
        );
 
-#### EG. ADD THE 3 ACTION TYPES CREATED BY THE Thunk TO A SLICE'S extraReducer property
+#### ADD THE 3 ACTION TYPES CREATED BY THE Thunk TO A SLICE'S extraReducer property
 
             const configObject = {           **Configuration Object 
-               name:, initialState:,
-               reducers:{
-                  caseReducer1:(state, action)=>{ },
-               },
-               extraReducer:{//actions dispatched by action creator with name actionCreator
+               name:, initialState:, reducers:{ caseReducer1:(state, action)=>{ }, },
+               extraReducer:{
+                        //actions dispatched by action creator name `actionCreator`
                     [actonCreatorName.pending]:(state,action) => { // function body },
                     [actonCreatorName.fulfilled]:(state,action) =>{ // function body },
                     [actonCreatorName.rejected]:(state,action) =>{ // function body },
-               }
-       }
-  
+                 }
+             }
        const SliceofStateName = createSlice(configObject)
 #### - extraReducers allows createSlice() to respond to action types generated anywhere else
 
