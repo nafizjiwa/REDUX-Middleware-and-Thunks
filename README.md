@@ -39,14 +39,14 @@
 
       import { applyMiddleware, createStore } from 'redux'
   
-- __*INPUT*__ the `middleware` function into `createStore( )` with applyMiddleware:
+- __*INPUT*__ the `applyMiddleware()` function into `createStore( )` with REDUCER and INITIALSTATE:
 
       creates_A_SliceReducer = createstore(
               reducer,
               intialState, 
               applyMiddleware( middleware1, middleware2, middleware3 )
         )
-- __*DIPSATCH ACTIONS*__ The Dispatched Action is passed thru the middleware pipeline:
+- __*THE DIPSATCHED ACTIONS*__ are passed thru the middleware pipeline:
 
       actions move: middleware ---> to middleware ---> before app reducer
 #### Once middleware is added a call to dispatch is a call to middleware
