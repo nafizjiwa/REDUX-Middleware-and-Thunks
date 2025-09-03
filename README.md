@@ -20,7 +20,7 @@
 |||
 |configureStore( )|wraps createStore, applyMiddleware, and combineReducers| 
 |createSlice( )|auto-generates reducers and action creators.|
-|createAsyncThunk( )|andles async logic with built-in lifecycle actions.|
+|createAsyncThunk( )|Handles async logic with built-in lifecycle actions.|
 	
 ## Middleware in Redux
 - Helps with Redux side effects:
