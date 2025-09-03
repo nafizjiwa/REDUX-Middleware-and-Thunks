@@ -35,7 +35,7 @@
         2. createSlice's extraReducers property
   
 ## Write Your Own Middleware
-- To __*ADD*__ `middleware` to app use redux function applyMiddleware:
+- To __*ADD*__ `middleware` to an app use the REDUX FUNCTION `applyMiddleware`:
 
       import { applyMiddleware, createStore } from 'redux'
   
