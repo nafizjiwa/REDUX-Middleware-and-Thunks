@@ -1,7 +1,7 @@
 # REACT-REDUX-Middleware-and-Thunks
 
 ## Intro 
-#### In Redux asynchronous actions to update state (Like long API calls) involves:
+#### In Redux `asynchronous actions` to update the state (Lengthy API calls) involves:
 1. The Middleware Function - applyMiddleware( )
 2. Thunks
 3. Promise lifecycle
