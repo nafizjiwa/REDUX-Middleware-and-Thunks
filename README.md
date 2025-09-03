@@ -72,6 +72,7 @@
       store.dispatch(action={type:"some_value", payload:"some_value"})
 ## Intro to Thunks
 - Thunks are higher-order functions which wraps code and passes it on to compute later
+- In Redux, a thunk is a function returned by an action creator that can perform side effects and dispatch actions conditionally.
 
          const add = (x,y) => {      -->THE ADD FUNCTION RETURNS A THUNK
            return () => {            -->THUNK
