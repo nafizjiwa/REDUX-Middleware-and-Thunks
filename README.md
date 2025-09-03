@@ -5,7 +5,23 @@
 1. The Middleware Function - applyMiddleware( )
 2. Thunks
 3. Promise lifecycle
-#### REDUX toolkit functions are configureStore( ), createSlice( ), createAsyncThunk( )   
+
+|CORE REDUX | FUNCTIONS|
+|----|-----|
+|Function|Purpose|
+|||
+|createStore()|Creates the Redux store that holds the state tree of your application.|
+|combineReducers()|Merges multiple reducer functions into a single root reducer.|
+|applyMiddleware()|Enhances the store with middleware for handling side effects.|
+
+|REDUX toolkit| FUNCTIONS |
+|----|----|
+|Function|Purpose|
+|||
+|configureStore( )|wraps createStore, applyMiddleware, and combineReducers| 
+|createSlice( )|auto-generates reducers and action creators.|
+|createAsyncThunk( )|andles async logic with built-in lifecycle actions.|
+	
 ## Middleware in Redux
 - Helps with Redux side effects:
    - Middleware runs after an action is dispatched and before the action is passed to the reducer
