@@ -187,6 +187,20 @@
              }
        const SliceofStateName = createSlice(configObject)
 #### - extraReducers allows createSlice() to respond to action types generated anywhere else
+### - Using Builder notation an API used in createReducer() or createSlice({ extraReducers }) to define how your state responds to actions — useful with createAsyncThunk
+
+			extraReducers: (builder) => {
+			  builder
+			    .addCase(actionCreator.pending, (state) => {
+			      // handle loading state
+			    })
+			    .addCase(actionCreator.fulfilled, (state, action) => {
+			      // handle success
+			    })
+			    .addCase(actionCreator.rejected, (state) => {
+			      // handle error
+			    });
+			 }
 
 |REVEIW NOTES|
 |---|
@@ -209,4 +223,38 @@
 |ExtraReducers property allows createSlice() to respond to action types generated elsewhere|
 |How to make SLICE's respond to createAsyncThunk( ) action types?|
 |Pass the extraReducers property to createSlice|
+
+|BUILDER EXAMPLE|
+|----|
+
+|ACTION CREATOR|
+|----|
+
+		const fetchUser = createAsyncThunk('users/fetchUser', async (id) => {
+			 const response = await fetch(`/api/users/${id}`);
+			 return response.json();
+		});
+|SLICE|
+|----|
+
+		const userSlice = createSlice({
+		  name: 'users',
+		  initialState: { loading: false, user: null, error: null },
+		  reducers: {},
+		  extraReducers: (builder) => {
+		    builder
+		      .addCase(fetchUser.pending, (state) => {
+		        state.loading = true;
+		      })
+		      .addCase(fetchUser.fulfilled, (state, action) => {
+		        state.user = action.payload;
+		        state.loading = false;
+		      })
+		      .addCase(fetchUser.rejected, (state) => {
+		        state.error = 'Failed to fetch user';
+		        state.loading = false;
+		      });
+		  }
+		});
+
 
