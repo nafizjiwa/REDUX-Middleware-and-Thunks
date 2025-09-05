@@ -154,9 +154,10 @@
                                           `fetchUserById.fulfilled`
                                           `fetchUserById.rejected`
 ## Using createSlice( )'s `extraReducer` with Async (Thunk) Action Creators
-#### - NOTE* `createSlice( {accepts an OPTIONS argument} ) => creates_A_Slice_Of_Store ` </br>
+- `createSlice( )` is a function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.
+#### - NOTE* `createSlice( {accepts an OPTIONS argument} ) => to_Create_A_Slice_Of_The_Store ` </br>
    - `{ OPTIONS is an Object }` --> { contains config params = name, initialState, reducers, `EXTRA REDUCERS`}
-      --> The Parameters generate a Slice of the store with functions to update SLICE'S STATE (action creators, action types).</br>
+      --> These Parameters generate a Slice of the store along with functions to update the SLICE'S STATE (action creators, action types).</br>
 #### - The extraReducer property allows createSlice() to respond to action types generated anywhere else not only in the Slice
 #### - SLICE'S RESPOND TO THEIR OWN  ACTION CREATORS: `slicesName.actions.actionType` they are NOT AFFECTED BY Thunk ACTION CREATORS
 
