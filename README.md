@@ -30,9 +30,9 @@
 #### Common Tasks Middlewares Perform - logging, caching, routing, asynchronous data requests, token authoritzations.
 - To make asynchronous requests the Redux Toolkit uses:
 
-        1. createAsychThunk(input asynchronous request)
+        1. createAsychThunk( )
                  - uses middleware and thunks
-        2. createSlice's extraReducers property
+        2. ExtraReducer property of createSlice( )
   
 ## Write Your Own Middleware
 - To __*ADD*__ `middleware` to an app use the REDUX FUNCTION `applyMiddleware`:
